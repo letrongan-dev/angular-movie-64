@@ -1,0 +1,12 @@
+<mat-card>
+  <img [src]="movie.hinhAnh" mat-card-image />
+  <mat-card-title>{{ movie.tenPhim }}</mat-card-title>
+  <mat-card-content>{{ movie.moTa }}</mat-card-content>
+  <button
+    [routerLink]=" '/detail/' + movie.maPhim "
+    mat-raised-button
+    color="primary"
+  >
+    Chi tiết
+  </button>
+</mat-card>

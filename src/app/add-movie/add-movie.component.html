@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="title mat-display-2">Thêm phim</h1>
+    <!-- reference -->
+    <!-- validation html5 attribute: required, minlength, maxlength, email, pattern -->
+    <form #addMovieForm="ngForm" (submit)="handleSubmit()">
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>maPhim</mat-label>
+            <input matInput name="maPhim" ngModel />
+        </mat-form-field>
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>tenPhim</mat-label>
+            <input matInput name="tenPhim" ngModel />
+        </mat-form-field>
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>Bí danh</mat-label>
+            <input matInput name="biDanh" ngModel />
+        </mat-form-field>
+
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>moTa</mat-label>
+            <input matInput name="moTa" ngModel />
+        </mat-form-field>
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>ngayKhoiChieu</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>danhGia</mat-label>
+            <input matInput name="danhGia" ngModel />
+        </mat-form-field>
+        <mat-form-field class="form-group" appearance="outline">
+            <mat-label>trailer</mat-label>
+            <input matInput name="trailer" ngModel />
+        </mat-form-field>
+
+
+        <input type="file" (change)="handleChangeFile($event)" />
+
+
+        <div class="form-group">
+            <mat-slide-toggle name="dangChieu" ngModel>Đang chiếu</mat-slide-toggle>
+            <mat-slide-toggle name="hot" ngModel>Hot</mat-slide-toggle>
+            <mat-slide-toggle name="sapChieu" ngModel>Sắp chiếu</mat-slide-toggle>
+        </div>
+
+
+
+
+
+
+        <div class="btn-group">
+            <button mat-raised-button color="primary">Đăng ký</button>
+        </div>
+    </form>
+</div>

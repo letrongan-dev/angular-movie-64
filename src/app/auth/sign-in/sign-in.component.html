@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="title mat-display-2">Đăng Nhập</h1>
+  <!-- reference -->
+  <!-- validation html5 attribute: required, minlength, maxlength, email, pattern -->
+  <form #signinForm="ngForm" (submit)="handleSubmit()">
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Tài Khoản</mat-label>
+      <input #taiKhoan="ngModel" matInput required name="taiKhoan" ngModel />
+      <mat-error *ngIf="taiKhoan.errors?.required"
+        >Vui lòng nhập tài khoản</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Mật khẩu</mat-label>
+      <input
+        #matKhau="ngModel"
+        matInput
+        required
+        type="password"
+        name="matKhau"
+        ngModel
+      />
+
+      <mat-error *ngIf="matKhau.errors?.required"
+        >Vui lòng nhập mật khẩu</mat-error
+      >
+    </mat-form-field>
+
+    <div class="btn-group">
+      <button mat-raised-button color="primary">Đăng Nhập</button>
+    </div>
+  </form>
+</div>
+
+<!-- 1. Dàn layout 
+2. Xử lý form
+3. Call api đăng nhập
+4. tạo service mới auth.service.js, lưu trữ dữ liệu "me"
+5. Sau khi call api thành công, đem dữ liệu be trả về bỏ lên service 
+6. Lưu token vào localstorage
+7.Trong component header, lấy me trên service xuống, check điều (ngIf),
+chưa đăng nhập thì hiện sign in sign up, đăng nhập rồi thì hiện "hello, hieu" -->

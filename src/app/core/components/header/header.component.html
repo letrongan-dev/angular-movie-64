@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>movie</mat-icon>
+  </button>
+  <span>Booking Ticket</span>
+  <span style="flex-grow: 1" class="example-spacer"></span>
+  <button
+    routerLinkActive="active"
+    routerLink="/"
+    mat-button
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Home
+  </button>
+
+  <button *ngIf="loggedInUser; else authBtn" mat-button>
+    Hello, {{ loggedInUser?.hoTen }}
+  </button>
+
+  <ng-template #authBtn>
+    <button routerLinkActive="active" routerLink="/signin" mat-button>
+      Sign in
+    </button>
+    <button routerLinkActive="active" routerLink="/signup" mat-button>
+      Sign up
+    </button>
+  </ng-template>
+</mat-toolbar>

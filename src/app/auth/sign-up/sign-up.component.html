@@ -1,0 +1,69 @@
+<div class="container">
+  <h1 class="title mat-display-2">Đăng ký</h1>
+  <!-- reference -->
+  <!-- validation html5 attribute: required, minlength, maxlength, email, pattern -->
+  <form #signupForm="ngForm" (submit)="handleSubmit()">
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Tài Khoản</mat-label>
+      <input #taiKhoan="ngModel" matInput required name="taiKhoan" ngModel />
+      <mat-error *ngIf="taiKhoan.errors?.required"
+        >Vui lòng nhập tài khoản</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Mật khẩu</mat-label>
+      <input
+        #matKhau="ngModel"
+        matInput
+        required
+        minlength="8"
+        maxlength="16"
+        type="password"
+        name="matKhau"
+        ngModel
+      />
+
+      <mat-error *ngIf="matKhau.errors?.required"
+        >Vui lòng nhập mật khẩu</mat-error
+      >
+      <mat-error *ngIf="matKhau.errors?.minlength || matKhau.errors?.maxlength"
+        >Mật khẩu phải từ 8 tới 16 kí tự</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input #email="ngModel" required email matInput name="email" ngModel />
+
+      <mat-error *ngIf="email.errors?.required">Vui lòng nhập email</mat-error>
+      <mat-error *ngIf="email.errors?.email"
+        >Email không đúng định dạng</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Họ tên</mat-label>
+      <input matInput name="hoTen" ngModel />
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Số ĐT</mat-label>
+      <input
+        #phone="ngModel"
+        required
+        pattern="^[0-9]+$"
+        matInput
+        name="soDt"
+        ngModel
+      />
+
+      <mat-error *ngIf="phone.errors?.required">Vui lòng nhập số đt</mat-error>
+      <mat-error *ngIf="phone.errors?.pattern">Vui lòng nhập chữ số</mat-error>
+    </mat-form-field>
+
+    <div class="btn-group">
+      <button mat-raised-button color="primary">Đăng ký</button>
+    </div>
+  </form>
+</div>

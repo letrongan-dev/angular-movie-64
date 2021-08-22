@@ -1,0 +1,13 @@
+<h1 style="text-align: center" class="mat-display-2">Danh sách Phim</h1>
+
+<div class="container">
+  <div *ngIf="isLoading" style="text-align: center">....Loading.....</div>
+
+  <div *ngIf="!isLoading" fxLayoutGap="15px grid" fxLayout="row wrap">
+    <div *ngFor="let item of movieList" fxFlex="25%" fxFlex.xs="100%">
+      <app-movie [movie]="item"></app-movie>
+    </div>
+  </div>
+
+  <!-- <button (click)="handleCreateMovie()" mat-raised-button>Thêm phim</button> -->
+</div>
